@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BLACKSTEEL Barber Club — барбершоп у Києві на Подолі</title>
+  <meta name="description" content="Чоловічі стрижки, фейди, моделювання бороди та королівське гоління небезпечною бритвою. Барбершоп BLACKSTEEL на Подолі з 2017 року. Онлайн-запис за хвилину.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta name="color-scheme" content="dark">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:site_name" content="BLACKSTEEL Barber Club">
+  <meta property="og:title" content="BLACKSTEEL Barber Club — Гостро. Чисто. Без компромісів.">
+  <meta property="og:description" content="Барбершоп на Подолі з 2017 року. Стрижки, борода, королівське гоління. Онлайн-запис.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BLACKSTEEL — барбершоп у Києві">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Шрифти з Google Fonts лежать локально (assets/fonts): швидше і без сторонніх запитів -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/fira-sans-extra-condensed-800-latin.woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/hero-poster.webp" media="(min-width: 768px)">
+  <link rel="preload" as="image" href="assets/img/hero-poster-m.webp" media="(max-width: 767px)">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Модулі вантажимо паралельно, а не ланцюжком після main.js -->
+  <link rel="modulepreload" href="js/modules/utils.js">
+  <link rel="modulepreload" href="js/modules/smooth.js">
+  <link rel="modulepreload" href="js/modules/preloader.js">
+  <link rel="modulepreload" href="js/modules/header.js">
+  <link rel="modulepreload" href="js/modules/hero.js">
+  <link rel="modulepreload" href="js/modules/animations.js">
+  <link rel="modulepreload" href="js/modules/booking.js">
+  <link rel="modulepreload" href="js/modules/select.js">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <script>
+    document.documentElement.classList.add('js');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reduced-motion');
+    else if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    // Страховка: якщо скрипти не завантажились, показуємо контент без анімацій
+    setTimeout(function () {
+      if (!window.__bsReady) document.documentElement.classList.replace('js', 'no-preloader');
+    }, 6000);
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarberShop",
+    "name": "BLACKSTEEL Barber Club",
+    "slogan": "Гостро. Чисто. Без компромісів.",
+    "image": "assets/og-image.jpg",
+    "telephone": "+380675551717",
+    "priceRange": "450–1600 ₴",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "вул. Костянтинівська, 14",
+      "addressLocality": "Київ",
+      "addressCountry": "UA"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "21:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "18:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до змісту</a>
+
+  <!-- Preloader -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <svg class="preloader__mark" viewBox="0 0 28 24" aria-hidden="true"><path d="M0 24 9 0h6L6 24z" fill="currentColor"/><path d="M10 24 19 0h9l-9 24z" fill="var(--red)"/></svg>
+      <p class="preloader__word"><span>BLACKSTEEL</span></p>
+      <div class="preloader__bar"><span class="preloader__fill"></span></div>
+      <p class="preloader__meta"><span>Barber Club · Kyiv</span><span class="preloader__count">0</span></p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <a class="logo" href="#top" aria-label="BLACKSTEEL — на початок сторінки">
+        <svg class="logo__mark" viewBox="0 0 28 24" aria-hidden="true"><path d="M0 24 9 0h6L6 24z" fill="currentColor"/><path d="M10 24 19 0h9l-9 24z" fill="var(--red)"/></svg>
+        <span class="logo__text">BLACKSTEEL</span>
+      </a>
+
+      <nav class="nav" aria-label="Основна навігація">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#about">Про нас</a></li>
+          <li><a class="nav__link" href="#services">Послуги</a></li>
+          <li><a class="nav__link" href="#masters">Майстри</a></li>
+          <li><a class="nav__link" href="#works">Роботи</a></li>
+          <li><a class="nav__link" href="#reviews">Відгуки</a></li>
+          <li><a class="nav__link" href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__phone" href="tel:+380675551717">+380 67 555 17 17</a>
+        <a class="btn btn--red btn--sm header__cta" href="#booking" data-magnetic><span class="btn__label" data-text="Записатися"><span>Записатися</span></span></a>
+        <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Відкрити меню">
+          <span class="burger__line"></span><span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="menu" id="menu" aria-hidden="true" inert>
+    <div class="menu__inner container">
+      <nav aria-label="Мобільна навігація">
+        <ol class="menu__list">
+          <li><a class="menu__link" href="#about"><span class="menu__num">01</span><span class="menu__text">Про нас</span></a></li>
+          <li><a class="menu__link" href="#services"><span class="menu__num">02</span><span class="menu__text">Послуги</span></a></li>
+          <li><a class="menu__link" href="#masters"><span class="menu__num">03</span><span class="menu__text">Майстри</span></a></li>
+          <li><a class="menu__link" href="#works"><span class="menu__num">04</span><span class="menu__text">Роботи</span></a></li>
+          <li><a class="menu__link" href="#reviews"><span class="menu__num">05</span><span class="menu__text">Відгуки</span></a></li>
+          <li><a class="menu__link" href="#contacts"><span class="menu__num">06</span><span class="menu__text">Контакти</span></a></li>
+        </ol>
+      </nav>
+      <div class="menu__footer">
+        <a class="btn btn--red btn--block" href="#booking"><span class="btn__label" data-text="Записатися онлайн"><span>Записатися онлайн</span></span></a>
+        <div class="menu__contacts">
+          <a href="tel:+380675551717">+380 67 555 17 17</a>
+          <span>вул. Костянтинівська, 14</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top" aria-label="BLACKSTEEL Barber Club">
+      <div class="hero__media">
+        <video class="hero__video" muted playsinline loop preload="none"
+               data-src-desktop="assets/video/hero-1080.mp4"
+               data-src-mobile="assets/video/hero-720.mp4"
+               aria-hidden="true"></video>
+        <div class="hero__shade"></div>
+      </div>
+
+      <div class="hero__content container">
+        <div class="hero__top">
+          <p class="hero__eyebrow" data-hero-fade><span class="dot" aria-hidden="true"></span>Барбершоп на Подолі</p>
+          <p class="hero__eyebrow hero__eyebrow--right" data-hero-fade>Est. 2017 — Київ</p>
+        </div>
+
+        <div class="hero__bottom">
+          <h1 class="hero__title" aria-label="BLACKSTEEL — барбершоп у Києві">
+            <span class="hero__title-inner" aria-hidden="true">BLACKSTEEL</span>
+          </h1>
+
+          <div class="hero__row">
+            <p class="hero__slogan" data-hero-fade>Гостро. Чисто.<br><em>Без компромісів.</em></p>
+            <div class="hero__aside" data-hero-fade>
+              <p class="hero__lead">Чоловічі стрижки, борода та королівське гоління від майстрів, які не поспішають.</p>
+              <div class="hero__actions">
+                <a class="btn btn--red" href="#booking" data-magnetic><span class="btn__label" data-text="Записатися"><span>Записатися</span></span><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+                <a class="link-line" href="#services">Послуги та ціни</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__foot" data-hero-fade>
+            <a class="scroll-cue" href="#about"><span class="scroll-cue__line" aria-hidden="true"></span>Гортай</a>
+            <p class="open-status" data-open-status><span class="open-status__dot" aria-hidden="true"></span><span class="open-status__text">Пн–Нд · 10:00–21:00</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span class="marquee__item">Стрижки</span><span class="marquee__sep"></span>
+          <span class="marquee__item marquee__item--outline">Борода</span><span class="marquee__sep"></span>
+          <span class="marquee__item">Гоління бритвою</span><span class="marquee__sep"></span>
+          <span class="marquee__item marquee__item--outline">Фейд</span><span class="marquee__sep"></span>
+          <span class="marquee__item">Батько + син</span><span class="marquee__sep"></span>
+          <span class="marquee__item marquee__item--outline">Камуфляж сивини</span><span class="marquee__sep"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div class="about__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">01</span><span class="eyebrow__line"></span>Про нас</p>
+          <h2 class="h2" id="about-title" data-split>Не салон. <em>Майстерня.</em></h2>
+        </div>
+
+        <div class="about__text">
+          <p class="lead" data-reveal>BLACKSTEEL відкрився у 2017 році в старому цегляному приміщенні на Подолі. Двоє друзів — барбер, який десять років стриг у Лондоні, і столяр, що зібрав тут кожну полицю власними руками, — хотіли місце без глянцю й зайвого пафосу.</p>
+          <p data-reveal>Шкіра, метал, дерево. Небезпечна бритва, гарячий рушник і майстри, які не поспішають. Ми не женемося за трендами — ми робимо стрижку, з якою ти виходиш рівно таким, яким хочеш бути. Сьогодні, і через місяць, коли волосся відросте.</p>
+          <blockquote class="about__quote" data-reveal>
+            <p>«Сталь не прощає поспіху. Тому ми й не поспішаємо.»</p>
+            <footer>— Артем Коваль, засновник</footer>
+          </blockquote>
+        </div>
+
+        <div class="about__media">
+          <figure class="about__img about__img--main" data-clip>
+            <div class="media-frame" data-parallax="0.12">
+              <img src="assets/img/about-2-560.webp" srcset="assets/img/about-2-560.webp 560w, assets/img/about-2-1000.webp 1000w" sizes="(min-width: 1024px) 34vw, 70vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Інтер'єр барбершопу: шкіряні крісла, дзеркала в золотих рамах і теплі лампи">
+            </div>
+          </figure>
+          <figure class="about__img about__img--small" data-clip>
+            <div class="media-frame" data-parallax="0.18">
+              <img src="assets/img/about-1-800.webp" srcset="assets/img/about-1-800.webp 800w, assets/img/about-1-1600.webp 1600w" sizes="(min-width: 1024px) 26vw, 60vw" width="1600" height="1000" loading="lazy" decoding="async" alt="Ряд чорних барберських крісел біля цегляної стіни">
+            </div>
+          </figure>
+          <p class="about__caption" data-reveal>Поділ, вул. Костянтинівська — 3 крісла, 4 майстри, жодного поспіху.</p>
+        </div>
+
+        <ul class="stats" aria-label="BLACKSTEEL у цифрах">
+          <li class="stat" data-reveal><span class="stat__num" data-count="9">9</span><span class="stat__label">років на Подолі</span></li>
+          <li class="stat" data-reveal><span class="stat__num"><span data-count="18400">18 400</span><span class="stat__plus">+</span></span><span class="stat__label">клієнтів у кріслі</span></li>
+          <li class="stat" data-reveal><span class="stat__num" data-count="4">4</span><span class="stat__label">майстри зі стажем 6+ років</span></li>
+          <li class="stat" data-reveal><span class="stat__num"><span data-count="4.9" data-decimals="1">4,9</span><span class="stat__star" aria-hidden="true">★</span></span><span class="stat__label">рейтинг у Google Maps</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__num">02</span><span class="eyebrow__line"></span>Послуги</p>
+            <h2 class="h2" id="services-title" data-split>Послуги та <em>ціни</em></h2>
+          </div>
+          <p class="section-head__text" data-reveal>Ціни фіксовані — без доплат за «складність». Кава, чай або віскі — за рахунок закладу.</p>
+        </div>
+
+        <div class="price">
+          <div class="price__group">
+            <h3 class="price__title" data-reveal>Стрижки</h3>
+            <ul class="price__list">
+              <li><a class="svc" href="#booking" data-service="Чоловіча стрижка" data-reveal>
+                <span class="svc__num">01</span>
+                <span class="svc__main"><span class="svc__name">Чоловіча стрижка</span><span class="svc__desc">Ножиці та машинка, миття голови, укладка</span></span>
+                <span class="svc__time">60 хв</span>
+                <span class="svc__price">750<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+              <li><a class="svc" href="#booking" data-service="Фейд / скін-фейд" data-reveal>
+                <span class="svc__num">02</span>
+                <span class="svc__main"><span class="svc__name">Фейд / скін-фейд</span><span class="svc__desc">Плавний перехід до нуля, контур небезпечною бритвою</span></span>
+                <span class="svc__time">60 хв</span>
+                <span class="svc__price">850<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+              <li><a class="svc" href="#booking" data-service="Стрижка машинкою" data-reveal>
+                <span class="svc__num">03</span>
+                <span class="svc__main"><span class="svc__name">Стрижка машинкою</span><span class="svc__desc">Одна-дві насадки, окантовка, без миття</span></span>
+                <span class="svc__time">30 хв</span>
+                <span class="svc__price">450<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+              <li><a class="svc" href="#booking" data-service="Дитяча стрижка" data-reveal>
+                <span class="svc__num">04</span>
+                <span class="svc__main"><span class="svc__name">Дитяча стрижка</span><span class="svc__desc">Для хлопців до 12 років — спокійно і без сліз</span></span>
+                <span class="svc__time">45 хв</span>
+                <span class="svc__price">500<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+            </ul>
+          </div>
+
+          <div class="price__group">
+            <h3 class="price__title" data-reveal>Борода й гоління</h3>
+            <ul class="price__list">
+              <li><a class="svc" href="#booking" data-service="Моделювання бороди" data-reveal>
+                <span class="svc__num">05</span>
+                <span class="svc__main"><span class="svc__name">Моделювання бороди</span><span class="svc__desc">Форма під обличчя, контур бритвою, гарячий рушник, олія</span></span>
+                <span class="svc__time">40 хв</span>
+                <span class="svc__price">550<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+              <li><a class="svc" href="#booking" data-service="Королівське гоління" data-reveal>
+                <span class="svc__num">06</span>
+                <span class="svc__main"><span class="svc__name">Королівське гоління</span><span class="svc__desc">Гарячі рушники, небезпечна бритва, догляд за шкірою</span></span>
+                <span class="svc__time">45 хв</span>
+                <span class="svc__price">650<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+              <li><a class="svc" href="#booking" data-service="Камуфляж сивини" data-reveal>
+                <span class="svc__num">07</span>
+                <span class="svc__main"><span class="svc__name">Камуфляж сивини</span><span class="svc__desc">Тонування волосся або бороди — природно, без «фарбованого» ефекту</span></span>
+                <span class="svc__time">30 хв</span>
+                <span class="svc__price">500<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+            </ul>
+          </div>
+
+          <div class="price__group">
+            <h3 class="price__title" data-reveal>Комплекси</h3>
+            <ul class="price__list">
+              <li><a class="svc" href="#booking" data-service="Стрижка + борода" data-reveal>
+                <span class="svc__num">08</span>
+                <span class="svc__main"><span class="svc__name">Стрижка + борода</span><span class="svc__desc">Повний образ за один візит</span></span>
+                <span class="svc__time">90 хв</span>
+                <span class="svc__price">1 150<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+              <li><a class="svc" href="#booking" data-service="Батько + син" data-reveal>
+                <span class="svc__num">09</span>
+                <span class="svc__main"><span class="svc__name">Батько + син</span><span class="svc__desc">Дві стрижки одночасно, у сусідніх кріслах</span></span>
+                <span class="svc__time">60 хв</span>
+                <span class="svc__price">1 100<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+              <li><a class="svc svc--featured" href="#booking" data-service="BLACKSTEEL Ritual" data-reveal>
+                <span class="svc__num">10</span>
+                <span class="svc__main"><span class="svc__name">BLACKSTEEL Ritual <span class="tag">Хіт</span></span><span class="svc__desc">Стрижка, борода, королівське гоління, масаж голови і келих віскі</span></span>
+                <span class="svc__time">120 хв</span>
+                <span class="svc__price">1 600<small>₴</small></span>
+                <span class="svc__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="price__note" data-reveal>Робота засновника — +200 ₴ до вартості послуги. Тривалість орієнтовна.</p>
+      </div>
+    </section>
+
+    <!-- Masters -->
+    <section class="section masters" id="masters" aria-labelledby="masters-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__num">03</span><span class="eyebrow__line"></span>Майстри</p>
+            <h2 class="h2" id="masters-title" data-split>Руки, яким <em>довіряють</em></h2>
+          </div>
+          <p class="section-head__text" data-reveal>Четверо майстрів, у кожного — своя сильна сторона. Обирай за стилем або довірся першому вільному.</p>
+        </div>
+      </div>
+
+      <div class="masters__scroller">
+        <ul class="masters__grid container">
+          <li class="master" data-reveal>
+            <div class="master__photo"><img src="assets/img/master-artem-520.webp" srcset="assets/img/master-artem-520.webp 520w, assets/img/master-artem-900.webp 900w" sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 78vw" width="900" height="1125" loading="lazy" decoding="async" alt="Артем Коваль, засновник BLACKSTEEL"></div>
+            <div class="master__body">
+              <p class="master__role">Засновник · Master barber</p>
+              <h3 class="master__name">Артем Коваль</h3>
+              <p class="master__meta">14 років досвіду · Лондон, Київ</p>
+              <ul class="master__tags"><li>Класика</li><li>Ножиці</li><li>Помпадур</li></ul>
+              <a class="master__cta" href="#booking" data-master="Артем Коваль">Записатися до Артема<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </li>
+          <li class="master" data-reveal>
+            <div class="master__photo"><img src="assets/img/master-den-520.webp" srcset="assets/img/master-den-520.webp 520w, assets/img/master-den-900.webp 900w" sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 78vw" width="900" height="1125" loading="lazy" decoding="async" alt="Ден Кім, senior barber"></div>
+            <div class="master__body">
+              <p class="master__role">Senior barber</p>
+              <h3 class="master__name">Ден Кім</h3>
+              <p class="master__meta">8 років досвіду</p>
+              <ul class="master__tags"><li>Фейди</li><li>Текстурний кроп</li></ul>
+              <a class="master__cta" href="#booking" data-master="Ден Кім">Записатися до Дена<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </li>
+          <li class="master" data-reveal>
+            <div class="master__photo"><img src="assets/img/master-vlad-520.webp" srcset="assets/img/master-vlad-520.webp 520w, assets/img/master-vlad-900.webp 900w" sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 78vw" width="900" height="1125" loading="lazy" decoding="async" alt="Влад Мороз, майстер гоління"></div>
+            <div class="master__body">
+              <p class="master__role">Майстер гоління</p>
+              <h3 class="master__name">Влад Мороз</h3>
+              <p class="master__meta">9 років досвіду</p>
+              <ul class="master__tags"><li>Королівське гоління</li><li>Борода</li></ul>
+              <a class="master__cta" href="#booking" data-master="Влад Мороз">Записатися до Влада<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </li>
+          <li class="master" data-reveal>
+            <div class="master__photo"><img src="assets/img/master-samuel-520.webp" srcset="assets/img/master-samuel-520.webp 520w, assets/img/master-samuel-900.webp 900w" sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 78vw" width="900" height="1125" loading="lazy" decoding="async" alt="Самуель Обі, барбер"></div>
+            <div class="master__body">
+              <p class="master__role">Barber</p>
+              <h3 class="master__name">Самуель Обі</h3>
+              <p class="master__meta">6 років досвіду</p>
+              <ul class="master__tags"><li>Кучеряве волосся</li><li>Дизайни бритвою</li></ul>
+              <a class="master__cta" href="#booking" data-master="Самуель Обі">Записатися до Самуеля<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section class="section works" id="works" aria-labelledby="works-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__num">04</span><span class="eyebrow__line"></span>Роботи</p>
+            <h2 class="h2" id="works-title" data-split>Зроблено <em>тут</em></h2>
+          </div>
+          <p class="section-head__text" data-reveal>Кілька робіт наших майстрів. Більше — щодня в Instagram.</p>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery__col" data-speed="0">
+            <button class="work work--p" type="button" data-full="assets/img/g1-full.webp" data-caption="Текстурна стрижка ножицями · Ден Кім"><img src="assets/img/g1-thumb.webp" width="800" height="1200" loading="lazy" decoding="async" alt="Барбер філірувальними ножицями формує верх стрижки"><span class="work__zoom" aria-hidden="true"></span><span class="work__cap">Текстура · Ден</span></button>
+            <button class="work work--l" type="button" data-full="assets/img/g6-full.webp" data-caption="Класичний андеркат з боковим проділом · Артем Коваль"><img src="assets/img/g6-thumb.webp" width="1000" height="667" loading="lazy" decoding="async" alt="Майстер робить чіткий боковий проділ машинкою"><span class="work__zoom" aria-hidden="true"></span><span class="work__cap">Андеркат · Артем</span></button>
+            <button class="work work--p" type="button" data-full="assets/img/g7-full.webp" data-caption="Фейд і контур бороди · Ден Кім"><img src="assets/img/g7-thumb.webp" width="800" height="1200" loading="lazy" decoding="async" alt="Чоловік з бородою під час фейду машинкою"><span class="work__zoom" aria-hidden="true"></span><span class="work__cap">Фейд + борода · Ден</span></button>
+          </div>
+          <div class="gallery__col" data-speed="-0.12">
+            <button class="work work--p" type="button" data-full="assets/img/g2-full.webp" data-caption="Висока борода і скін-фейд · Самуель Обі"><img src="assets/img/g2-thumb.webp" width="800" height="1200" loading="lazy" decoding="async" alt="Профіль чоловіка з густою оформленою бородою і фейдом"><span class="work__zoom" aria-hidden="true"></span><span class="work__cap">Борода · Самуель</span></button>
+            <button class="work work--l" type="button" data-full="assets/img/g8-full.webp" data-caption="Королівське гоління · Влад Мороз"><img src="assets/img/g8-thumb.webp" width="1000" height="667" loading="lazy" decoding="async" alt="Клієнт у кріслі під час гоління"><span class="work__zoom" aria-hidden="true"></span><span class="work__cap">Гоління · Влад</span></button>
+            <button class="work work--p" type="button" data-full="assets/img/g3-full.webp" data-caption="Укладка гребінцем · Артем Коваль"><img src="assets/img/g3-thumb.webp" width="800" height="1200" loading="lazy" decoding="async" alt="Барбер укладає волосся клієнта гребінцем"><span class="work__zoom" aria-hidden="true"></span><span class="work__cap">Укладка · Артем</span></button>
+          </div>
+          <div class="gallery__col" data-speed="0.08">
+            <button class="work work--p" type="button" data-full="assets/img/g4-full.webp" data-caption="Оформлення бороди ножицями · Влад Мороз"><img src="assets/img/g4-thumb.webp" width="800" height="1200" loading="lazy" decoding="async" alt="Чорно-біле фото: майстер підрізає бороду ножицями"><span class="work__zoom" aria-hidden="true"></span><span class="work__cap">Борода · Влад</span></button>
+            <button class="work work--p" type="button" data-full="assets/img/g5-full.webp" data-caption="Класична коротка стрижка · Самуель Обі"><img src="assets/img/g5-thumb.webp" width="800" height="1200" loading="lazy" decoding="async" alt="Майстер у чорних рукавичках стриже ножицями по гребінцю"><span class="work__zoom" aria-hidden="true"></span><span class="work__cap">Класика · Самуель</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before / after -->
+    <section class="section compare-section" id="detail" aria-labelledby="compare-title">
+      <div class="container compare-section__grid">
+        <div class="compare-section__text">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">05</span><span class="eyebrow__line"></span>До / після</p>
+          <h2 class="h2" id="compare-title" data-split>Різниця — <em>в деталях</em></h2>
+          <p class="compare-section__lead" data-reveal>Скін-фейд, фінальні десять хвилин. Те, що відрізняє «нормально» від «бездоганно». Потягни повзунок.</p>
+          <ol class="details">
+            <li data-reveal><span class="details__num">01</span><span><strong>Розтушовка переходу</strong>Жодної «сходинки» між довжинами — тільки плавний градієнт.</span></li>
+            <li data-reveal><span class="details__num">02</span><span><strong>Контур за вухом</strong>Чітка лінія машинкою-тримером і бритвою.</span></li>
+            <li data-reveal><span class="details__num">03</span><span><strong>Чиста шия</strong>Прибираємо пушок, гарячий рушник, тонік.</span></li>
+          </ol>
+        </div>
+
+        <div class="compare" data-reveal>
+          <img class="compare__img" src="assets/img/ba-result-900.webp" srcset="assets/img/ba-result-900.webp 900w, assets/img/ba-result-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 92vw" width="1600" height="900" loading="lazy" decoding="async" alt="Після: завершений скін-фейд з чистим контуром">
+          <div class="compare__before">
+            <img class="compare__img" src="assets/img/ba-process-900.webp" srcset="assets/img/ba-process-900.webp 900w, assets/img/ba-process-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 92vw" width="1600" height="900" loading="lazy" decoding="async" alt="До: стрижка в процесі, на шиї ще відросле волосся">
+          </div>
+          <span class="compare__label compare__label--before">До</span>
+          <span class="compare__label compare__label--after">Після</span>
+          <div class="compare__handle" role="slider" tabindex="0" aria-label="Порівняння до і після" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50%">
+            <span class="compare__knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__num">06</span><span class="eyebrow__line"></span>Відгуки</p>
+            <h2 class="h2" id="reviews-title" data-split>Говорять <em>клієнти</em></h2>
+          </div>
+          <div class="rating" data-reveal>
+            <span class="rating__num">4,9</span>
+            <span class="rating__body"><span class="rating__stars" aria-hidden="true">★★★★★</span><span class="rating__text">612 відгуків у Google Maps</span></span>
+          </div>
+        </div>
+
+        <div class="carousel" data-reveal aria-roledescription="карусель" aria-label="Відгуки клієнтів">
+          <span class="carousel__mark" aria-hidden="true">“</span>
+          <div class="carousel__viewport" aria-live="polite">
+            <figure class="review is-active" aria-roledescription="слайд" aria-label="1 з 6">
+              <blockquote class="review__text">Ходжу до Дена третій рік. Жодного разу не довелося пояснювати двічі — він пам’ятає, як я стрижуся, краще за мене.</blockquote>
+              <figcaption class="review__author"><span class="review__name">Олександр</span><span class="review__service">Фейд · Ден Кім</span></figcaption>
+            </figure>
+            <figure class="review" aria-roledescription="слайд" aria-label="2 з 6">
+              <blockquote class="review__text">Королівське гоління у Влада — окремий жанр. Гарячі рушники, тиша, бритва. Вийшов іншою людиною.</blockquote>
+              <figcaption class="review__author"><span class="review__name">Максим Д.</span><span class="review__service">Королівське гоління · Влад Мороз</span></figcaption>
+            </figure>
+            <figure class="review" aria-roledescription="слайд" aria-label="3 з 6">
+              <blockquote class="review__text">Привів сина на першу стрижку, хвилювалися обидва. Самуель за п’ять хвилин перетворив це на пригоду. Тепер син сам нагадує, що пора.</blockquote>
+              <figcaption class="review__author"><span class="review__name">Ігор</span><span class="review__service">Батько + син · Самуель Обі</span></figcaption>
+            </figure>
+            <figure class="review" aria-roledescription="слайд" aria-label="4 з 6">
+              <blockquote class="review__text">Нарешті місце, де бороду не просто вкорочують, а дають їй форму. Артем підібрав контур під моє обличчя — дружина оцінила першою.</blockquote>
+              <figcaption class="review__author"><span class="review__name">Андрій К.</span><span class="review__service">Моделювання бороди · Артем Коваль</span></figcaption>
+            </figure>
+            <figure class="review" aria-roledescription="слайд" aria-label="5 з 6">
+              <blockquote class="review__text">Записався онлайн за хвилину, прийшов — крісло вже чекає. Без черг і без «зачекайте ще десять хвилин». Кава теж на рівні.</blockquote>
+              <figcaption class="review__author"><span class="review__name">Віталій</span><span class="review__service">Стрижка + борода · Ден Кім</span></figcaption>
+            </figure>
+            <figure class="review" aria-roledescription="слайд" aria-label="6 з 6">
+              <blockquote class="review__text">Стригся в Лондоні, Берліні, Варшаві. BLACKSTEEL — перше місце в Києві, куди я повертаюся без вагань.</blockquote>
+              <figcaption class="review__author"><span class="review__name">Тарас Л.</span><span class="review__service">BLACKSTEEL Ritual · Артем Коваль</span></figcaption>
+            </figure>
+          </div>
+
+          <div class="carousel__controls">
+            <div class="carousel__progress" aria-hidden="true"></div>
+            <p class="carousel__count" aria-hidden="true"><span class="carousel__current">01</span> / <span class="carousel__total">06</span></p>
+            <div class="carousel__nav">
+              <button class="circle-btn" type="button" data-dir="-1" aria-label="Попередній відгук"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+              <button class="circle-btn" type="button" data-dir="1" aria-label="Наступний відгук"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="section booking" id="booking" aria-labelledby="booking-title">
+      <div class="container booking__grid">
+        <div class="booking__intro">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">07</span><span class="eyebrow__line"></span>Онлайн-запис</p>
+          <h2 class="h2" id="booking-title" data-split>Займи <em>крісло</em></h2>
+          <p class="booking__text" data-reveal>Обери послугу, майстра й час — адміністратор підтвердить запис протягом 15 хвилин.</p>
+
+          <div class="summary" data-reveal aria-live="polite">
+            <p class="summary__title">Твій візит</p>
+            <dl class="summary__list">
+              <div><dt>Послуга</dt><dd data-sum="service">—</dd></div>
+              <div><dt>Майстер</dt><dd data-sum="master">Будь-який вільний</dd></div>
+              <div><dt>Дата</dt><dd data-sum="date">—</dd></div>
+              <div><dt>Час</dt><dd data-sum="time">—</dd></div>
+            </dl>
+            <p class="summary__total"><span>До сплати</span><strong data-sum="price"></strong></p>
+          </div>
+        </div>
+
+        <div class="booking__card" data-reveal>
+          <form class="form" id="booking-form" novalidate>
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label class="field__label" for="f-service">Послуга</label>
+                <div class="select">
+                  <select id="f-service" name="service" required aria-describedby="e-service">
+                    <option value="">Оберіть послугу</option>
+                    <optgroup label="Стрижки">
+                      <option value="Чоловіча стрижка" data-price="750" data-duration="60">Чоловіча стрижка — 750 ₴</option>
+                      <option value="Фейд / скін-фейд" data-price="850" data-duration="60">Фейд / скін-фейд — 850 ₴</option>
+                      <option value="Стрижка машинкою" data-price="450" data-duration="30">Стрижка машинкою — 450 ₴</option>
+                      <option value="Дитяча стрижка" data-price="500" data-duration="45">Дитяча стрижка — 500 ₴</option>
+                    </optgroup>
+                    <optgroup label="Борода й гоління">
+                      <option value="Моделювання бороди" data-price="550" data-duration="40">Моделювання бороди — 550 ₴</option>
+                      <option value="Королівське гоління" data-price="650" data-duration="45">Королівське гоління — 650 ₴</option>
+                      <option value="Камуфляж сивини" data-price="500" data-duration="30">Камуфляж сивини — 500 ₴</option>
+                    </optgroup>
+                    <optgroup label="Комплекси">
+                      <option value="Стрижка + борода" data-price="1150" data-duration="90">Стрижка + борода — 1 150 ₴</option>
+                      <option value="Батько + син" data-price="1100" data-duration="60">Батько + син — 1 100 ₴</option>
+                      <option value="BLACKSTEEL Ritual" data-price="1600" data-duration="120">BLACKSTEEL Ritual — 1 600 ₴</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <p class="field__error" id="e-service"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="f-master">Майстер</label>
+                <div class="select">
+                  <select id="f-master" name="master">
+                    <option value="">Будь-який вільний</option>
+                    <option value="Артем Коваль">Артем Коваль — засновник (+200 ₴)</option>
+                    <option value="Ден Кім">Ден Кім — фейди</option>
+                    <option value="Влад Мороз">Влад Мороз — гоління, борода</option>
+                    <option value="Самуель Обі">Самуель Обі — кучеряве волосся</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend class="field__label">Дата</legend>
+              <div class="chips chips--dates" data-dates role="radiogroup" aria-describedby="e-date"></div>
+              <p class="field__error" id="e-date"></p>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="field__label">Час</legend>
+              <div class="chips chips--times" data-times role="radiogroup" aria-describedby="e-time"><p class="chips__hint">Спершу оберіть дату</p></div>
+              <p class="field__error" id="e-time"></p>
+            </fieldset>
+
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label class="field__label" for="f-name">Ім’я</label>
+                <input class="input" id="f-name" name="name" type="text" autocomplete="given-name" placeholder="Як до тебе звертатися" required aria-describedby="e-name">
+                <p class="field__error" id="e-name"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="f-phone">Телефон</label>
+                <input class="input" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" required aria-describedby="e-phone">
+                <p class="field__error" id="e-phone"></p>
+              </div>
+            </div>
+
+            <button class="btn btn--red btn--block form__submit" type="submit"><span class="btn__label" data-text="Підтвердити запис"><span>Підтвердити запис</span></span></button>
+            <p class="form__note">Натискаючи кнопку, ти погоджуєшся на обробку даних для запису. Без спаму.</p>
+          </form>
+
+          <div class="success" hidden>
+            <svg class="success__icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30"/><path d="M20 33l8 8 16-17"/></svg>
+            <h3 class="success__title" tabindex="-1">Дякуємо, <span data-success="name"></span>!</h3>
+            <p class="success__text">Ми зарезервували для тебе <strong data-success="slot"></strong>. Адміністратор підтвердить запис протягом 15 хвилин.</p>
+            <p class="success__text success__text--muted">Хочеш швидше? Напиши нам у Telegram — відповідаємо одразу.</p>
+            <div class="success__actions">
+              <a class="btn btn--red" data-success-tg href="https://t.me/blacksteel_barber" target="_blank" rel="noopener"><span class="btn__label" data-text="Написати в Telegram"><span>Написати в Telegram</span></span></a>
+              <button class="btn btn--ghost" type="button" data-success-reset><span class="btn__label" data-text="Новий запис"><span>Новий запис</span></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="section contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="container contacts__grid">
+        <div class="contacts__info">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">08</span><span class="eyebrow__line"></span>Контакти</p>
+          <h2 class="h2" id="contacts-title" data-split>Знайди <em>нас</em></h2>
+
+          <div class="contacts__block" data-reveal>
+            <p class="contacts__label">Адреса</p>
+            <p class="contacts__big">вул. Костянтинівська, 14</p>
+            <p class="contacts__muted">Київ, Поділ · 5 хвилин пішки від м. «Контрактова площа»</p>
+          </div>
+
+          <div class="contacts__block" data-reveal>
+            <p class="contacts__label">Графік</p>
+            <dl class="hours">
+              <div><dt>Пн — Пт</dt><dd>10:00 — 21:00</dd></div>
+              <div><dt>Субота</dt><dd>10:00 — 20:00</dd></div>
+              <div><dt>Неділя</dt><dd>11:00 — 18:00</dd></div>
+            </dl>
+            <p class="open-status open-status--block" data-open-status><span class="open-status__dot" aria-hidden="true"></span><span class="open-status__text"></span></p>
+          </div>
+
+          <div class="contacts__block" data-reveal>
+            <p class="contacts__label">Телефон</p>
+            <a class="contacts__big contacts__phone" href="tel:+380675551717">+380 67 555 17 17</a>
+          </div>
+
+          <div class="socials" data-reveal>
+            <a class="social" href="https://t.me/blacksteel_barber" target="_blank" rel="noopener" aria-label="Telegram BLACKSTEEL">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5 2.9 11.6c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.4 4.8 3.5c.6.4 1.5.1 1.7-.7L23 5.8c.2-1-.6-1.7-1.5-1.3ZM9.6 14.4l8.2-7.3-6.5 8.5-.3 3.3-1.4-4.5Z" fill="currentColor" stroke="none"/></svg>
+              <span>Telegram</span>
+            </a>
+            <a class="social" href="https://www.instagram.com/blacksteel.barber/" target="_blank" rel="noopener" aria-label="Instagram BLACKSTEEL">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              <span>Instagram</span>
+            </a>
+            <a class="social" href="viber://chat?number=%2B380675551717" aria-label="Viber BLACKSTEEL">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8c-4.9 0-8.5 1.4-8.5 7.6 0 3.3.9 5.4 2.6 6.6v3.6c0 .5.6.8 1 .4l2.5-2.6c.8.1 1.6.2 2.4.2 4.9 0 8.5-1.4 8.5-7.6S16.9 2.8 12 2.8Z"/><path d="M9.2 7.8c.3-.3.8-.3 1 .1l.7 1.2c.2.3.1.7-.2.9l-.5.4c.4 1.2 1.3 2.1 2.5 2.6l.4-.5c.2-.3.6-.4.9-.2l1.2.7c.4.2.5.7.1 1l-.6.6c-.5.5-1.3.6-2 .3-2.1-.9-3.7-2.5-4.6-4.6-.3-.7-.2-1.5.3-2Z" fill="currentColor" stroke="none"/></svg>
+              <span>Viber</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contacts__map" data-reveal>
+          <iframe title="BLACKSTEEL на карті: вул. Костянтинівська, Київ" src="https://www.google.com/maps?q=%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%9A%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%82%D0%B8%D0%BD%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0%2C%20%D0%9A%D0%B8%D1%97%D0%B2&z=16&hl=uk&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <a class="contacts__route link-line" href="https://www.google.com/maps/dir/?api=1&destination=%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%9A%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%82%D0%B8%D0%BD%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0%2C%20%D0%9A%D0%B8%D1%97%D0%B2" target="_blank" rel="noopener">Прокласти маршрут</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="stripe" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__cta">
+        <p class="footer__headline" data-split>Готовий до <em>змін?</em></p>
+        <a class="btn btn--red" href="#booking" data-magnetic><span class="btn__label" data-text="Записатися"><span>Записатися</span></span><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__label">Барбершоп</p>
+          <p class="footer__slogan">Гостро. Чисто.<br><em>Без компромісів.</em></p>
+        </div>
+        <nav class="footer__col" aria-label="Навігація у футері">
+          <p class="footer__label">Меню</p>
+          <ul class="footer__links">
+            <li><a href="#about">Про нас</a></li>
+            <li><a href="#services">Послуги</a></li>
+            <li><a href="#masters">Майстри</a></li>
+            <li><a href="#works">Роботи</a></li>
+            <li><a href="#booking">Запис</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <p class="footer__label">Контакти</p>
+          <ul class="footer__links">
+            <li><a href="tel:+380675551717">+380 67 555 17 17</a></li>
+            <li>вул. Костянтинівська, 14, Київ</li>
+            <li>Пн–Пт 10–21 · Сб 10–20 · Нд 11–18</li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__label">Соцмережі</p>
+          <ul class="footer__links">
+            <li><a href="https://t.me/blacksteel_barber" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://www.instagram.com/blacksteel.barber/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="viber://chat?number=%2B380675551717">Viber</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer__wordmark" aria-hidden="true">BLACKSTEEL</p>
+
+      <div class="footer__bottom">
+        <p>© <span data-year>2026</span> BLACKSTEEL Barber Club</p>
+        <p>Концепт-сайт для портфоліо · бренд вигаданий</p>
+        <a class="footer__top" href="#top">Нагору<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTA -->
+  <div class="mobile-cta" aria-hidden="true">
+    <a class="btn btn--red mobile-cta__btn" href="#booking" tabindex="-1"><span class="btn__label" data-text="Записатися"><span>Записатися</span></span></a>
+    <a class="mobile-cta__call" href="tel:+380675551717" tabindex="-1" aria-label="Зателефонувати"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Перегляд роботи" hidden>
+    <div class="lightbox__backdrop" data-lb-close></div>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" alt="">
+      <figcaption class="lightbox__cap"><span class="lightbox__count"></span><span class="lightbox__text"></span></figcaption>
+    </figure>
+    <button class="circle-btn lightbox__btn lightbox__btn--prev" type="button" data-lb-dir="-1" aria-label="Попереднє фото"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+    <button class="circle-btn lightbox__btn lightbox__btn--next" type="button" data-lb-dir="1" aria-label="Наступне фото"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <button class="circle-btn lightbox__close" type="button" data-lb-close aria-label="Закрити"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
